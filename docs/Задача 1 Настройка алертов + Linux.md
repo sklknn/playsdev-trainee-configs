@@ -50,13 +50,13 @@ traceroute google.com
 ## 3.3 Определить какие порты инстанса используются в данный момент сервисами и определить какое приложение работает на порту 80;
 
 ```bash
-ss -tlpn 
+sudo ss -lnp
 # all ports
 ```
-```bash
-ss -tlpn | grep 80
-# only 80
 
+```bash
+sudo ss -lnp | grep ":80"
+# only 80
 ```
 ## 3.4 Показать какие ip routes настроены на машине, показать какой ip у твоей машины, какой hostname
 ```bash
@@ -126,7 +126,7 @@ ps ax | grep 'terminal name'
 ## 3.8 Показать какие службы systemd сейчас запущены и найти службу nginx, сделать hard и easy рестарт сервиса nginx, объяснить различие;
 
 ```bash
-systemctl list-unit-files --state=enabled
+systemctl list-units --type=service --state=running
 ```
 "easy" рестарт ([только конфиги](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units#restarting-and-reloading))
 ```bash
@@ -177,5 +177,5 @@ du --inodes -s 'path'
 ```bash
 man iptables
 ```
-Вообще по мануалу можно поиском пройтись поиском, используя /'запрос', но это не очень удобно
+Вообще по мануалу можно поиском пройтись поиском, используя '/search-word', но это не очень удобно
 
