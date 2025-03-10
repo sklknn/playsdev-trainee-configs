@@ -118,7 +118,27 @@ sudo systemctl start mongod
 Чтобы это исправить мы можем просто изменить параметр bindIp либо через аргумент команды запуска `--bind_ip` либо в файле конфигурации `/etc/mongod.conf` 
 
 ![[[Pasted image 20250310154243.png]]](https://github.com/sklknn/playsdev-trainee-configs/blob/e5e6367fd6c16f0d6c62e6adc915e2347390b8fd/docs/Pasted%20image%2020250310154243.png)
+
 Теперь можно подключиться используя любой клиент, например mongosh
 ```bash
 mongosh 'mongodb://158.160.7.171:27017'
 ```
+
+##  Репликация в mongodb
+Укажем в /etc/mongod.conf имя нашего пула для репликации
+
+```conf
+replication:
+    replSetName: "rs1"
+```
+Затем подключиться к mongodb и выполнить комнады
+```
+rs.initiate()
+rs.add("Тут ip адрес реплики")
+```
+
+После можно посмотреть статус пула репликации через `rs.status()` 
+В поле members должно быть несколько значений с разными id - это id наших серверов с mongodb
+
+Подключившись к любому из хостов через клиент можно увидеть его статус - 
+`rs1 [direct: secondary] dbname>`
