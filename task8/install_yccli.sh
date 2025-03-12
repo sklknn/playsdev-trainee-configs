@@ -14,8 +14,8 @@ elif [[ "$OSTYPE" == "cygwin" ]]; then
 elif [[ "$OSTYPE" == "msys" ]]; then
         # mingw git-bash
     echo 'Installing for Windows'
-    pwsh iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
+    powershell -command "iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')"
 
 else
-    echo 'Unknown'
+    echo 'Unknown system'
 fi
