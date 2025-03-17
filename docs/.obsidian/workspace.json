@@ -41,12 +41,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Задача 7 Managed Service for PostgreSQL.md",
+                "file": "Задача 3 Nginx proxy.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Задача 7 Managed Service for PostgreSQL"
+              "title": "Задача 3 Nginx proxy"
+            }
+          },
+          {
+            "id": "f49b998a6dbc6946",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Задача 1 Настройка алертов + Linux.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Задача 1 Настройка алертов + Linux"
             }
           },
           {
@@ -106,7 +120,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -227,13 +241,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Задача 7 Managed Service for PostgreSQL.md",
+                "file": "Задача 1 Настройка алертов + Linux.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Структура Задача 7 Managed Service for PostgreSQL"
+              "title": "Структура Задача 1 Настройка алертов + Linux"
             }
           }
         ],
@@ -254,10 +268,18 @@
       "obsidian-excalidraw-plugin:Создать новый чертеж": false
     }
   },
-  "active": "dfd9ad2b8bc55241",
+  "active": "f49b998a6dbc6946",
   "lastOpenFiles": [
-    "Pasted image 20250307153342.png",
+    "Задача 2 SSH,пользователи и контроль доступа Description.md",
+    "Задача 3 Nginx proxy.md",
+    "Задача 4 Nginx proxy + upsteram + regex.md",
+    "Задача 5 Вывести загрузку CPU на страничку NGINX в реалтайме..md",
+    "Задача 6 Networking.md",
     "Задача 7 Managed Service for PostgreSQL.md",
+    "Задача 8.md",
+    "Excalidraw/Drawing 2025-03-13 14.45.29.excalidraw.md",
+    "Excalidraw",
+    "Pasted image 20250307153342.png",
     "Pasted image 20250310154243.png",
     "Pasted image 20250310153118.png",
     "Pasted image 20250307161306.png",
@@ -268,13 +290,7 @@
     "Pasted image 20250307153108.png",
     "Pasted image 20250307151149.png",
     "Задача 1 Настройка алертов + Linux.md",
-    "Задача 2 SSH,пользователи и контроль доступа Description.md",
-    "Задача 4 Nginx proxy + upsteram + regex.md",
-    "Задача 5 Вывести загрузку CPU на страничку NGINX в реалтайме..md",
-    "Задача 6 Networking.md",
-    "Задача 3 Nginx proxy.md",
     "Excalidraw/Drawing 2025-02-24 16.40.53.excalidraw.md",
-    "Excalidraw",
     "Excalidraw/Drawing 2025-02-24 16.30.09.excalidraw.md",
     "Без названия.canvas",
     "Добро пожаловать.md",
