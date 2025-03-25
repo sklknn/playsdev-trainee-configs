@@ -1,9 +1,0 @@
-services:
-    nginx:
-        ports:
-            - 80:80
-        image: sklknn/nginx
-    apache:
-        ports:
-            - 8080:8080
-        image: sklknn/apache
