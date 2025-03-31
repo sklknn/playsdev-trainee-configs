@@ -1,0 +1,12 @@
+---
+
+- import_tasks: docker-fedora.yml
+- import_tasks: docker-ubuntu.yml
+
+- name: check docker is active
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  become: true
+

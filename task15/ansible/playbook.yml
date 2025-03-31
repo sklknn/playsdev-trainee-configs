@@ -1,0 +1,68 @@
+-
+  name: task15
+  hosts: linux_servers
+  vars:
+    secret: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          66656130643032333733353665386562316332636232346233323433653664373638363737613336
+          3638333839313634386434663661396162356639383834380a633766323263356363383132386230
+          33386262356530353432393965656265363865363161646438636265633666653938663934313134
+          6532316437663932650a383563353037643137306262303431313261626630616135333139373633
+          36623233383931363636393737633361353466646366336234393065666364376662
+  roles:
+    - install-docker
+  tasks:
+
+    - name: clone my remote repo
+      git:
+        repo: https://github.com/sklknn/task15.git
+        dest: /home/ansible/task15
+
+    - name: build docker images
+      become: true
+      block:
+        - name: build nginx container
+          community.docker.docker_image_build:
+            name: sklknn/nginxssl
+            path: /home/ansible/task15/nginx
+
+        - name: build apache container
+          community.docker.docker_image_build:
+            name: sklknn/apache
+            path: /home/ansible/task15/apache
+
+          #shell:
+            #chdir: /home/ansible/task15
+            #cmd: sudo docker build -t sklknn/nginxssl ./nginx && sudo docker build -t sklknn/apache ./apache
+
+    - name: run containers
+      become: true
+      block:
+        - name: run nginx container
+          community.docker.docker_container:
+            name: nginx
+            image: sklknn/nginxssl
+            state: started
+            ports:
+              - "443:443"
+            env:
+              PORT: "443"
+              DOLLAR: "$"
+              APACHE_URL: 'http://{{ ansible_host }}:8080'
+
+        - name: run apache container
+          community.docker.docker_container:
+            name: apache
+            image: sklknn/apache
+            state: started
+            ports:
+              - "8080:8080"
+            env:
+              PORT: "8080"
+              DOLLAR: "$"
+
+    - name: check vault decrypting
+      command: "echo {{ secret }}"
+
+      # sudo docker run -d --name nginx -p 443:443 -e PORT=443 -e DOLLAR=$ -e APACHE_URL=http://172.17.0.3:8080 sklknn/nginxssl && sudo docker run -d --name apache -p 8080:8080 -e PORT=8080 -e DOLLAR=$ sklknn/apache
+ 

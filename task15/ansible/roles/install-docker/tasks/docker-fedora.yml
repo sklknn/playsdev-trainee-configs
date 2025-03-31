@@ -1,0 +1,30 @@
+---
+- name: Fedora install docker
+  when: ansible_distribution == "Fedora"
+  block:
+    - name: Fedora install dependencies
+      dnf:
+        name:
+          - dnf-plugins-core
+          - git
+        state: latest 
+        update_cache: true
+      become: true
+    # add remote repo
+
+    - name: install docker repository
+      become: true
+      command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+
+     #Docker!
+    - name: Fedora install docker
+      dnf:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: latest 
+        update_cache: true
+      become: true

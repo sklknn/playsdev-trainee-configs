@@ -1,7 +1,0 @@
--
-  name: Test connectivity
-  hosts: linux_servers
-  tasks:
-    - name: Ping test
-      ping: 
-      

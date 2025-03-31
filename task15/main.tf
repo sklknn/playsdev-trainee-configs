@@ -93,12 +93,11 @@ resource "yandex_compute_instance" "ansible" {
   }
 }
 
-output "name_ansible" {
-  #value = yandex_vpc_address.ansible_addr.external_ipv4_address[0].address
-  value = [for k,v in var.servers : "${yandex_compute_instance.ansible[k].name}"]
-}
+#output "name_ansible" {
+#  value = [for k,v in var.servers : "${yandex_compute_instance.ansible[k].name}"]
+#}
 
-output "addr_ansible" {
-  value = [for k,v in var.servers : "${yandex_vpc_address.ansible_addr[k].external_ipv4_address[0].address}"]
+#output "addr_ansible" {
+#  value = [for k,v in var.servers : "${yandex_vpc_address.ansible_addr[k].external_ipv4_address[0].address}"]
   #value = yandex_compute_instance.ansible.name
-}
+#}
